@@ -1,3 +1,4 @@
+from termcolor import colored, cprint, COLORS
 prijs_per_vriend = 7.45
 aantal_personen = 4
 
@@ -10,6 +11,6 @@ vip_totaal = vip_5min * vip_min
 
 totaal_prijs = normaal_prijs * vip_totaal
 
-print(f'de prijs voor een dagje uit is {totaal_prijs:.2f}')
+cprint(f'de prijs voor een dagje uit is {colored(totaal_prijs,'red')} euro')
 
 print(f'Dit geweldige dagje-uit met 4 mensen in de Speelhal met 45 minuten VR kost je maar {totaal_prijs:.2f} euro')
