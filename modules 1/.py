@@ -1,10 +1,8 @@
-
-
 prijs_per_vriend = 7.45
 vip_5min = 0.37
 
-aantal_personen = int(input('Met hoeveel mensen? '))
-vip_aantal = int(input('Hoe vaak wilt u gebruik maken van VIP? '))
+aantal_personen = float(input('Met hoeveel mensen? '))
+vip_aantal = float(input('Hoe vaak wilt u gebruik maken van VIP? '))
 
 
 normaal_prijs = prijs_per_vriend * aantal_personen
