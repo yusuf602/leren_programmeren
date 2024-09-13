@@ -11,3 +11,4 @@ print("Mag ik je voorstellen aan", naam)
 print(f"{geslacht2.capitalize()} leeftijd is:", leeftijd)
 print(f"{naam}'s favoriete kleur is:", kleur)
 print(f"Het verschil tussen {geslacht2} leeftijd en {getal} is:", nummer)
+
