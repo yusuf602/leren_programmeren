@@ -9,6 +9,11 @@ if a > b:
 elif b > a:
     min = a
     print(f"a is het kleinste getal: {min}")
-    
+else:
+    a = b
+    print(f'a is het kleinste getal')
+
+print('Het minimum is: gevolgd door de waarde van Min')
+print('Het maximum is: gevolgd door de waarde van Max')
 
         
