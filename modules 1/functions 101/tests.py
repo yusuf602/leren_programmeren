@@ -16,3 +16,4 @@ test('TEST nr1<nr2', expected, result)
 
 if __name__ == "__main__":
     report()
+    
