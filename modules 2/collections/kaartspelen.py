@@ -3,7 +3,7 @@ import random
 # Deck genereren
 kleuren = ["Harten", "Klaveren", "Schoppen", "Ruiten"]
 waarden = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Boer", "Vrouw", "Heer", "Aas"]
-deck = [f"{waarde} van {kleur}" for kleur in kleuren for waarde in waarden] + ["Joker", "Joker"]
+deck = [f"{kleur} van {waarde}" for kleur in kleuren for waarde in waarden] + ["Joker", "Joker"]
 
 random.shuffle(deck)
 getrokken_kaarten = deck[:7]
