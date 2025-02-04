@@ -205,8 +205,21 @@ def kamer7():
     kamer8()
 
 # === [kamer 4] === #
+# === [kamer 4] === #
 def kamer4():
-    print("Je komt in een nieuwe kamer, deze lijkt leeg te zijn...")
-    # Hier kan je verdergaan met het spel
+    print("Je komt in een nieuwe kamer en plotseling hoor je een vreemd geluid...")
+    print("Een zombie komt op je af! Tijd om te vechten!\n")
+
+    # Zombie stats
+    zombie_naam = "Zombie"
+    zombie_attack = 1
+    zombie_defense = 0
+    zombie_health = 4
+
+    # Start het gevecht
+    if vecht_met_vijand(zombie_naam, zombie_attack, zombie_defense, zombie_health):
+        print("Je hebt de zombie verslagen en je kunt verdergaan!\n")
+        kamer7()  # Na het verslaan van de zombie ga je naar kamer 7
+
 
 kamer1()  # Start het spel

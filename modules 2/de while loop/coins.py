@@ -1,51 +1,45 @@
-# name of student 
-# number of student
-# purpose of program
-# structure of program 
-# and returns the maximum 
+# Naam van de student  
+# Studentnummer  
+# Doel van het programma: Wisselgeld teruggeven met zo min mogelijk munten  
 
-# Muntsoorten, uitgebreid met 1, 2 en 5 euro munten, omgezet naar centen
-coinValues = [500, 200, 100, 50, 20, 10, 5, 2, 1]  # In centen
+# Muntsoorten in centen (inclusief 1, 2 en 5 euro munten)  
+muntwaarden = [500, 200, 100, 50, 20, 10, 5, 2, 1]  
 
-# Initialiseren van variabelen
-toPay = int(float(input('Amount to pay (in euros): ')) * 100)  # Het te betalen bedrag in centen
-paid = int(float(input('Paid amount (in euros): ')) * 100)  # Het betaalde bedrag in centen
-change = paid - toPay  # Het te geven wisselgeld
+# Vraag om het te betalen bedrag en het betaalde bedrag  
+te_betalen = int(float(input('Bedrag om te betalen (in euro): ')) * 100)  
+betaald = int(float(input('Betaald bedrag (in euro): ')) * 100)  
 
-# Lijst voor het aantal teruggegeven munten per type munt
-coinsReturned = {coin: 0 for coin in coinValues}
+# Bereken het wisselgeld  
+wisselgeld = betaald - te_betalen  
 
-# Controleer of het betaalde bedrag groter is dan het te betalen bedrag
-if change < 0:
-    print("The paid amount is less than the required amount. Please provide the correct amount.")
-else:
-    # Teruggeven van wisselgeld
-    while change > 0 and len(coinValues) > 0:
-        coinValue = coinValues.pop(0)  # Kies de grootste beschikbare munt
-        nrCoins = change // coinValue  # Hoeveel muntstukken kunnen er van deze muntwaarde worden gegeven?
+# Lijst om bij te houden hoeveel munten er worden teruggegeven  
+munten_terug = {munt: 0 for munt in muntwaarden}  
 
-        if nrCoins > 0:
-            # Print het maximale aantal munten dat teruggegeven kan worden
-            print(f'Return maximal {nrCoins} coins of {coinValue} cents.')
-            nrCoinsReturned = int(input(f'How many coins of {coinValue} cents did you return? '))
+# Controleer of er genoeg is betaald  
+if wisselgeld < 0:  
+    print("Je hebt te weinig betaald. Betaal het juiste bedrag.")  
+else:  
+    # Wisselgeld teruggeven met zo min mogelijk munten  
+    while wisselgeld > 0 and muntwaarden:  
+        munt = muntwaarden.pop(0)  # Pak de grootste munt die nog over is  
+        aantal_munten = wisselgeld // munt  # Hoeveel van deze munt kunnen we geven?  
 
-            # Voeg de munten toe aan de teruggegeven lijst
-            coinsReturned[coinValue] += nrCoinsReturned
-            change -= nrCoinsReturned * coinValue  # Trek het aantal gegeven munten van het wisselgeld af
+        if aantal_munten > 0:  
+            print(f'Geef maximaal {aantal_munten} munten van {munt} cent.')  
+            munten_gegeven = int(input(f'Hoeveel munten van {munt} cent geef je terug? '))  
 
-    # Controleer of het wisselgeld volledig is teruggegeven
-    if change > 0:
-        print(f'Change not returned: {change} cents.')
-    else:
-        print('Change returned successfully.')
+            # Bewaar het aantal teruggegeven munten  
+            munten_terug[munt] += munten_gegeven  
+            wisselgeld -= munten_gegeven * munt  
 
-    # Toon het overzicht van alle teruggegeven munten
-    print("\nOverview of returned coins:")
-    for coin in coinValues:
-        if coinsReturned[coin] > 0:
-            print(f'{coinsReturned[coin]} coins of {coin} cents')
+    # Controleer of alles is teruggegeven  
+    if wisselgeld > 0:  
+        print(f'Niet genoeg wisselgeld teruggegeven: {wisselgeld} cent over.')  
+    else:  
+        print('Wisselgeld correct teruggegeven.')  
 
-    if change > 0:
-        print("Note: Not all the required change could be returned.")
-    else:
-        print("All required change has been returned.")
+    # Print een overzicht van de teruggegeven munten  
+    print("\nOverzicht teruggegeven munten:")  
+    for munt, aantal in munten_terug.items():  
+        if aantal > 0:  
+            print(f'{aantal} munten van {munt} cent')  
