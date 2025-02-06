@@ -31,3 +31,4 @@ while True:
 # Stop de simulatie
 robotArm.wait()
 
+  
