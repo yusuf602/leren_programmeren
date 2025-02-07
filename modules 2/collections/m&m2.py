@@ -13,7 +13,7 @@ for kleur in kleuren:
     # Voeg de kleur en het aantal M&M's alleen toe als het aantal groter is dan 0
     if aantal_kleur > 0:
         zak[kleur] = aantal_kleur
-print(zak)
+
 # Print de zak met M&M's
 print("Zak met M&M's:")
 for kleur, aantal in zak.items():
