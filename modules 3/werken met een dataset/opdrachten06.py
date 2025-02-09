@@ -1,5 +1,5 @@
-from fruitmand import *
+from fruitmand import fruitmand  
 
+print(next(fruit['weight'] 
+for fruit in fruitmand if fruit['name'] == 'appel'))
 
-for fruit in fruitmand:
-    print (fruit[''])
