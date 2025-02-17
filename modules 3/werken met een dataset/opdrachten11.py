@@ -1,9 +1,7 @@
 from fruitmand import fruitmand
 
-# Verzamel de beschikbare kleuren
 beschikbare_kleuren = {fruit['color'] for fruit in fruitmand}
 
-# Vraag om een geldige kleur
 while True:
     kleur = input(f"Kies een kleur uit {beschikbare_kleuren}: ").lower()
     if kleur in beschikbare_kleuren:
