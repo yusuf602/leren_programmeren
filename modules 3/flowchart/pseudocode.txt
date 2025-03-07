@@ -1,0 +1,42 @@
+BEGIN
+    Stel de maximale rondes in op 20
+    Stel de maximale beurten in per ronde op 10
+    Stel de score in op 0
+    
+    Print "Welkom bij het Raadspel!"
+
+    VOOR elke ronde van 1 tot 20:
+        Genereer een willekeurig geheim getal tussen 1 en 1000
+        Print "Raad het geheime getal (tussen 1 en 1000)"
+
+        VOOR elke beurt van 1 tot 10:
+            Vraag de gebruiker om een gok in te voeren
+            PROBEER:
+                Converteer de invoer naar een getal en sla het op als 'gok'
+            EXCEPTIE:
+                Als de invoer geen getal is, print een foutmelding en vraag opnieuw om een getal
+
+            Bereken het verschil tussen de gok en het geheime getal en neem de absolute waarde van dit verschil
+            
+            ALS het verschil gelijk is aan 0:
+                Print "Gefeliciteerd! Je hebt het getal geraden!"
+                Verhoog de score met 1
+                Stop met raden en ga naar de volgende ronde
+
+            ALS het verschil kleiner dan of gelijk is aan 20:
+                Print "Je bent heel warm!"
+            ALS het verschil kleiner dan of gelijk is aan 50:
+                Print "Je bent warm!"
+                
+            ALS de gok kleiner is dan het geheime getal:
+                Print "Te laag!"
+            ALS de gok groter is dan het geheime getal:
+                Print "Te hoog!"
+        
+        Print de score aan het einde van de ronde
+
+        Als er nog meer rondes zijn, vraag of de speler door wil gaan:
+            Als de speler niet zegt "ja", stop het spel
+
+    Print de eindscore bij het beëindigen van het spel
+END

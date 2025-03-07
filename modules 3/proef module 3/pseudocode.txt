@@ -1,0 +1,21 @@
+START
+
+1. Maak een lege list genaamd deelnemers.
+2. Vraag de gebruiker om een naam in te voeren.
+3. Voeg de ingevoerde naam toe aan de list deelnemer.
+4. Herhaal stap 2 en 3 totdat het aantal deelnemers minimaal 3 zijn.
+   - Als het aantal deelnemers minder dan 3 is, blijf dan doorvragen naar namen een loop dus 
+
+5. Als er minstens 3 namen zijn:
+   - Vraag de gebruiker of ze een extra naam willen invoeren of verder willen gaan naar lootjes trekken.
+     - Als de gebruiker "ja" zegt, herhaal stap 2 en 3.
+     - Als de gebruiker "nee" zegt, ga door naar stap 6.
+
+6. Trek lootjes voor elke deelnemer:
+   - Maak een lijst van alle deelnemers en hun mogelijke lootjes.
+   - Zorg ervoor dat niemand het lootje van zichzelf heeft.
+     - Als iemand het lootje van zichzelf heeft, herhaal het trekken van lootjes totdat alles correct is.
+
+7. Print de lijst van deelnemers en hun bijbehorende lootjes.
+
+8. Einde
