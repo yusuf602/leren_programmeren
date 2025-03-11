@@ -3,6 +3,6 @@ import termcolor
 
 gegevens = doorvragen()
 for i in range(len(gegevens)):
-    print(f"{gegevens[i]['name']} die in {gegevens[i]['city']} woont, is {gegevens[i]['age']} jaar.")
+    print(f"{termcolor.colored(gegevens[i]['name'],'green')} die in {termcolor.colored(gegevens[i]['city'],'yellow')} woont, is {termcolor.colored(gegevens[i]['age'],'red')} jaar.")
 
 

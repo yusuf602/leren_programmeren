@@ -1,7 +1,7 @@
 import termcolor
 
 def vraaggegeven():
-    naam = input("Voer een naam in: ""geel")
+    naam = input("Voer een naam in: ")
     leeftijd = int(input('Voer een leeftijd in: '))
     woonplaats = input('Woonplaats in: ')
     return {'name': naam, 'age': leeftijd, 'city': woonplaats}
