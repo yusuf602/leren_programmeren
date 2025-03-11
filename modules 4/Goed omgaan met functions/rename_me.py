@@ -1,28 +1,39 @@
-def quantum_broodrooster(stellar_broccoli:int) -> bool:
-    return stellar_broccoli % 2 == 0
+def is_even(getal: int) -> bool:
+    """Controleert of een getal even is."""
+    return getal % 2 == 0
 
-def chaos_papegaai(fantasie_platypus:str) -> str:
-    betoverde_druif = fantasie_platypus.split()
-    doldwaze_broccoli = betoverde_druif[::-1]
-    tijdmachine_pannenkoekenmix = ' '.join(doldwaze_broccoli)
-    return tijdmachine_pannenkoekenmix
 
-def kosmische_koekjesmix(galactische_snoepjes:str) -> int:
-    planetair_taartje = set(galactische_snoepjes)
-    whatchamacallit = len(planetair_taartje)
-    return whatchamacallit
+def omgekeerde_woorden(zin: str) -> str:
+    """Keert de volgorde van woorden in een zin om."""
+    woorden = zin.split()
+    omgekeerde_woorden = woorden[::-1]
+    omgekeerde_zin = ' '.join(omgekeerde_woorden)
+    return omgekeerde_zin
 
-def ruimte_hamsterwiel(planetair_taartje:str) -> float:
-    wobbelwobbel = planetair_taartje.split()
-    
-    blork = 0
-    for snorkelwagen in wobbelwobbel:
-        blork += len(snorkelwagen)
 
-    bizarro_matrix = blork / len(wobbelwobbel)
-    return bizarro_matrix
+def unieke_karakters_aantal(tekst: str) -> int:
+    """Berekent het aantal unieke karakters in een string."""
+    unieke_karakters = set(tekst)
+    return len(unieke_karakters)
 
-def spaghetti_spaceship(infinity_pizza:int, parallelle_tosti:int=10) -> None:
-    for zwabber_krakeling in range(1, parallelle_tosti+1):
-        laser_sandwich = zwabber_krakeling * infinity_pizza
-        print(f'{zwabber_krakeling} x {infinity_pizza} = {laser_sandwich}')
+
+def gemiddelde_woordlengte(zin: str) -> float:
+    """Berekent de gemiddelde woordlengte in een zin."""
+    woorden = zin.split()
+    totale_lengte = sum(len(woord) for woord in woorden)
+    return totale_lengte / len(woorden) if woorden else 0
+
+
+def vermenigvuldigingstafel(getal: int, limiet: int = 10) -> None:
+    """Print de vermenigvuldigingstafel van een getal tot een bepaalde limiet."""
+    for i in range(1, limiet + 1):
+        resultaat = i * getal
+        print(f'{i} x {getal} = {resultaat}')
+
+
+
+print(is_even(43)) 
+print(omgekeerde_woorden("je vader")) 
+print(unieke_karakters_aantal("banana"))
+print(gemiddelde_woordlengte("Dit is een test")) 
+vermenigvuldigingstafel(5)  
