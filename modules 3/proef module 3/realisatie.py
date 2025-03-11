@@ -30,7 +30,7 @@ while True:
         break 
 
 verdeling = {deelnemers[i]: lootjes[i] for i in range(len(deelnemers))}
-    
+
 print("Alle lootjes zijn getrokken! Voer je naam in om te zien wie je hebt.")
     
 while True:
