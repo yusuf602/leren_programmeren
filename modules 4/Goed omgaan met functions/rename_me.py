@@ -33,7 +33,7 @@ def vermenigvuldigingstafel(getal: int, limiet: int = 10) -> None:
 
 
 print(is_even(43)) 
-print(omgekeerde_woorden("je vader")) 
+print(omgekeerde_woorden("hallo wereld")) 
 print(unieke_karakters_aantal("banana"))
 print(gemiddelde_woordlengte("Dit is een test")) 
 vermenigvuldigingstafel(5)  
