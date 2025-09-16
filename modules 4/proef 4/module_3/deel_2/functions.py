@@ -1,6 +1,8 @@
 import time
 from termcolor import colored
 from data import JOURNEY_IN_DAYS
+from data import COST_FOOD_HUMAN_COPPER_PER_DAY 
+from data import COST_FOOD_HORSE_COPPER_PER_DAY 
 
 ##################### O03 #####################
 
@@ -10,8 +12,9 @@ def copper2silver(amount:int) -> float:
 def silver2gold(amount:int) -> float:
     return amount / 5
 
-def copper2gold(amount:int) -> float:
-    return amount / 50
+def copper2gold(amount: int) -> float:
+    silver = copper2silver(amount)
+    return silver2gold(silver)
 
 def platinum2gold(amount:int) -> float:
     return amount * 25
@@ -27,8 +30,12 @@ def getPersonCashInGold(personCash:dict) -> float:
 
 ##################### O05 #####################
 
-def getJourneyFoodCostsInGold(people:int, horses:int) -> float:
-    pass
+def getJourneyFoodCostsInGold(people: int, horses: int, days: int = JOURNEY_IN_DAYS) -> float:
+    total_copper = (
+        people * COST_FOOD_HUMAN_COPPER_PER_DAY * days
+        + horses * COST_FOOD_HORSE_COPPER_PER_DAY * days
+    )
+    return copper2gold(total_copper)
 
 ##################### O06 #####################
 
