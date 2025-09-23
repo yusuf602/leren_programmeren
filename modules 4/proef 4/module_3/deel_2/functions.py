@@ -3,6 +3,9 @@ from termcolor import colored
 from data import JOURNEY_IN_DAYS
 from data import COST_FOOD_HUMAN_COPPER_PER_DAY 
 from data import COST_FOOD_HORSE_COPPER_PER_DAY 
+from data import COST_TENT_GOLD_PER_WEEK
+from data import COST_HORSE_SILVER_PER_DAY
+import math
 
 ##################### O03 #####################
 
@@ -57,23 +60,80 @@ def getAdventuringFriends(friends: list) -> list:
 
 
 ##################### O07 #####################
-
 def getNumberOfHorsesNeeded(people:int) -> int:
-    pass
+    """
+    2 personen per paard.
+    """
+    horses = people // 2
+    if people % 2 != 0:  
+        horses += 1
+    return horses
+
 
 def getNumberOfTentsNeeded(people:int) -> int:
-    pass
+    tents = people // 3
+    if people % 3 != 0:
+        tents += 1
+    return tents
+
 
 def getTotalRentalCost(horses:int, tents:int) -> float:
-    pass
+    # Bereken aantal weken voor tenten
+    weeks = JOURNEY_IN_DAYS // 7
+    if JOURNEY_IN_DAYS % 7 != 0:
+        weeks += 1
+
+    # Kosten tenten in goud
+    tent_cost_gold = tents * COST_TENT_GOLD_PER_WEEK * weeks
+
+    # Kosten paarden in zilver → omrekenen naar goud
+    horse_cost_silver = horses * COST_HORSE_SILVER_PER_DAY * JOURNEY_IN_DAYS
+    horse_cost_gold = silver2gold(horse_cost_silver)
+
+    # Totaal in goud
+    return round(tent_cost_gold + horse_cost_gold, 2)
 
 ##################### O08 #####################
 
 def getItemsAsText(items:list) -> str:
-    pass
+    teksten = []
+    for item in items:
+        aantal = item["amount"]
+        eenheid = item["unit"]
+        naam = item["name"]
+        if eenheid:  # als er een eenheid is
+            teksten.append(f"{aantal}x {aantal}{eenheid} {naam}")
+        else:
+            teksten.append(f"{aantal}x {naam}")
+
+    if len(teksten) == 0:
+        return ""
+    if len(teksten) == 1:
+        return teksten[0]
+    # alles behalve laatste met komma, laatste met &
+    return ", ".join(teksten[:-1]) + " & " + teksten[-1]
+
 
 def getItemsValueInGold(items:list) -> float:
-    pass
+    total_gold = 0
+    for item in items:
+        price = item.get("price", {"amount": 0, "type": "copper"})
+        amount = item.get("amount", 1)
+        price_amount = price.get("amount", 0)
+        price_type = price.get("type", "copper")
+        
+        # Omrekenen naar goud
+        if price_type == "copper":
+            gold_value = copper2gold(price_amount)
+        elif price_type == "silver":
+            gold_value = silver2gold(price_amount)
+        else:  # gold
+            gold_value = price_amount
+        
+        total_gold += gold_value * amount
+    
+    return round(total_gold, 2)
+
 
 ##################### O09 #####################
 
