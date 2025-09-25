@@ -5,6 +5,9 @@ from data import COST_FOOD_HUMAN_COPPER_PER_DAY
 from data import COST_FOOD_HORSE_COPPER_PER_DAY 
 from data import COST_TENT_GOLD_PER_WEEK
 from data import COST_HORSE_SILVER_PER_DAY
+from data import COST_INN_HUMAN_SILVER_PER_NIGHT
+from data import COST_INN_HORSE_COPPER_PER_NIGHT 
+
 import math
 
 ##################### O03 #####################
@@ -78,19 +81,15 @@ def getNumberOfTentsNeeded(people:int) -> int:
 
 
 def getTotalRentalCost(horses:int, tents:int) -> float:
-    # Bereken aantal weken voor tenten
     weeks = JOURNEY_IN_DAYS // 7
     if JOURNEY_IN_DAYS % 7 != 0:
         weeks += 1
 
-    # Kosten tenten in goud
     tent_cost_gold = tents * COST_TENT_GOLD_PER_WEEK * weeks
 
-    # Kosten paarden in zilver → omrekenen naar goud
     horse_cost_silver = horses * COST_HORSE_SILVER_PER_DAY * JOURNEY_IN_DAYS
     horse_cost_gold = silver2gold(horse_cost_silver)
 
-    # Totaal in goud
     return round(tent_cost_gold + horse_cost_gold, 2)
 
 ##################### O08 #####################
@@ -101,7 +100,7 @@ def getItemsAsText(items:list) -> str:
         aantal = item["amount"]
         eenheid = item["unit"]
         naam = item["name"]
-        if eenheid:  # als er een eenheid is
+        if eenheid:
             teksten.append(f"{aantal}x {aantal}{eenheid} {naam}")
         else:
             teksten.append(f"{aantal}x {naam}")
@@ -110,7 +109,6 @@ def getItemsAsText(items:list) -> str:
         return ""
     if len(teksten) == 1:
         return teksten[0]
-    # alles behalve laatste met komma, laatste met &
     return ", ".join(teksten[:-1]) + " & " + teksten[-1]
 
 
@@ -122,12 +120,11 @@ def getItemsValueInGold(items:list) -> float:
         price_amount = price.get("amount", 0)
         price_type = price.get("type", "copper")
         
-        # Omrekenen naar goud
         if price_type == "copper":
             gold_value = copper2gold(price_amount)
         elif price_type == "silver":
             gold_value = silver2gold(price_amount)
-        else:  # gold
+        else:  
             gold_value = price_amount
         
         total_gold += gold_value * amount
@@ -137,35 +134,74 @@ def getItemsValueInGold(items:list) -> float:
 
 ##################### O09 #####################
 
-def getCashInGoldFromPeople(people:list) -> float:
-    pass
+def getCashInGoldFromPeople(people: list) -> float:
+    totaal = 0
+    for persoon in people:
+        totaal += getPersonCashInGold(persoon["cash"])
+    return round(totaal, 2)
 
 ##################### O10 #####################
 
-def getInterestingInvestors(investors:list) -> list:
-    pass
+def getInterestingInvestors(investors: list) -> list:
+    result = []
+    for inv in investors:
+        if inv["profitReturn"] <= 10:
+            result.append(inv)
+    return result
 
-def getAdventuringInvestors(investors:list) -> list:
-    pass
+def getAdventuringInvestors(investors: list) -> list:
+    result = []
+    for inv in getInterestingInvestors(investors):
+        if inv["adventuring"] == True:
+            result.append(inv)
+    return result
 
-def getTotalInvestorsCosts(investors:list, gear:list) -> float:
-    pass
+def getTotalInvestorsCosts(investors: list, gear: list) -> float:
+    total_cost = 0
+    for inv in investors:
+        if inv["adventuring"]:  
+            horse_cost = COST_HORSE_SILVER_PER_DAY * JOURNEY_IN_DAYS
+            tent_cost = COST_TENT_GOLD_PER_WEEK * math.ceil(JOURNEY_IN_DAYS / 7)
+            food_cost = getJourneyFoodCostsInGold(1, 1, JOURNEY_IN_DAYS)
+            gear_cost = getItemsValueInGold(gear)
+            total_cost += (silver2gold(horse_cost) +
+                           tent_cost + food_cost + gear_cost)
+    return round(total_cost, 2)
+
 
 ##################### O11 #####################
 
-def getMaxAmountOfNightsInInn(leftoverGold:float, people:int, horses:int) -> int:
-    pass
+def getMaxAmountOfNightsInInn(leftoverGold: float, people: int, horses: int) -> int:
+    cost_one_night = getJourneyInnCostsInGold(1, people, horses)
+    if cost_one_night <= 0:
+        return 0
+    
+    nights = int(leftoverGold // cost_one_night)
+    return nights
 
-def getJourneyInnCostsInGold(nightsInInn:int, people:int, horses:int) -> float:
-    pass
+def getJourneyInnCostsInGold(nightsInInn: int, people: int, horses: int) -> float:
+    people_silver_total = people * COST_INN_HUMAN_SILVER_PER_NIGHT * nightsInInn
+    people_gold = silver2gold(people_silver_total)
+    horse_copper_total = horses * COST_INN_HORSE_COPPER_PER_NIGHT * nightsInInn
+    horse_gold = copper2gold(horse_copper_total)
+    total_gold = people_gold + horse_gold
+    return round(total_gold, 2)
 
 ##################### O13 #####################
+def getInvestorsCuts(profitGold: float, investors: list) -> list:
+    cuts = []
+    for inv in investors:
+        cut = profitGold * (inv['profitReturn'] / 100)  # procent naar goud
+        cuts.append(round(cut, 2))
+    return cuts
 
-def getInvestorsCuts(profitGold:float, investors:list) -> list:
-    pass
 
-def getAdventurerCut(profitGold:float, investorsCuts:list, fellowship:int) -> float:
-    pass
+def getAdventurerCut(profitGold: float, investorsCuts: list, fellowship: int) -> float:
+    total_investor_cuts = sum(investorsCuts)
+    leftover = profitGold - total_investor_cuts
+    if fellowship > 0:
+        return round(leftover / fellowship, 2)
+    return 0.0
 
 ##################### O14 #####################
 
