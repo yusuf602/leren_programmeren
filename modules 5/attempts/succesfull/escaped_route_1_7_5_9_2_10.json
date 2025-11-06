@@ -1,0 +1,104 @@
+{
+    "roomorder": "1,7,S,5,2,V,9,X,2,10",
+    "start": "30-10-2025 14:01:47",
+    "end": "30-10-2025 14:04:08",
+    "data": {
+        "player": {
+            "noice": 2,
+            "pickups": [
+                "shield"
+            ]
+        },
+        "route": {
+            "routetaken": [
+                "step A : 1",
+                "step B : 7",
+                "step C : 5",
+                "step D : 9",
+                "step E : 2",
+                "step F : 10"
+            ],
+            "doorcode": "17592",
+            "errors": [],
+            "roomanswers": [
+                "room1 : b",
+                "room7 : a",
+                "room5 : a",
+                "room9 : a",
+                "room2 : -",
+                "room10 : 17592"
+            ]
+        },
+        "story": {
+            "fullstory": [
+                "Je herinnert je alleen nog de val door een diep gat, na een zware aardbeving.",
+                "Versuft sta je op.",
+                "Je ziet links van je een deur en rechts van je een gang met aan het einde een standbeeld.",
+                "Je stapt de gang binnen en opnieuw begint de grond te schudden.",
+                "Je rent zo hard als je kunt door de lange gang richting het standbeeld terwijl de gang achter je instort.",
+                "Zodra je bij het einde van de gang komt en bij het standbeeld staat, stopt de grond met schudden.",
+                "Je kijkt achterom en ziet de gang volledig ingestort.",
+                "Voor je staat een standbeeld, met in zijn handen een schild.",
+                "Je pakt het schild van het standbeeld, het voelt licht en handzaam.",
+                "Nu je nog eens goed om je heen kijkt, zie je dat de gang links steeds breder wordt en de gang rechts smaller.",
+                "Je stapt een grote hal gevuld met rijen kolossale pilaren.",
+                "Het schamele licht van flikkerende fakkels voorspelt niets goeds.",
+                "Een muffe vochtige geur hangt in de lucht, vermengd met een vage geur van bedorven voedsel.",
+                "Tussen de pilaren zie je een grote schim bewegen.",
+                "Je stapt voorzichtig verder de ruimte in.",
+                "Plots schrik je op van een hard gegrom achter je.",
+                "Je kijkt om en achter je staat een enorme trol die zijn knuppel naar achterwaarts beweegt om je te slaan.",
+                "Je bukt net op tijd en een van de pilaren krijgt het voor zijn kiezen.",
+                "Een groot brokstuk vliegt de hal door en maakt een gat in de muur.",
+                "De pilaar stort in op het hoofd van de trol, die alleen maar bozer wordt.",
+                "Even neem je de tijd om om je heen te kijken en zie je 2 opties.",
+                "Een gang verderop of door het zojuist ontstane gat.",
+                "Je staat op en trekt een sprintje naar de gang.",
+                "Plots sta je voor een houte loopbrug met de trol op je hielen.",
+                "Je probeert voorzichtig te doen maar je enige optie is nu om door te lopen.",
+                "Dan herinner je het schild dat je zojuist hebt opgepakt.",
+                "Die trol is wel erg groot en je besluit het schild niet te gebruiken.",
+                "Je rent over de brug met de trol op je hielen.",
+                "De houte loopbrug kraakt en beweegt heftig.",
+                "Net voor je bij het einde bent voel je de brug breken achter je.",
+                "Zonder twijfel neem je een sprong en komt aan de overkant op solide aarde terecht.",
+                "Je kunt nog net zien hoe de trol met brug en al de diepte in valt en je hoort een harde plof.",
+                "Je staat op en stoft jezelf af.",
+                "Je ziet voor je een open hek.",
+                "Je loopt door het hek en het valt achter dicht.",
+                "Voor een kolosale ijzeren deur zie je een wezen van onmetelijke kracht en grandeur: Een Draak...",
+                "Zijn gigantische ogen zijn op jouw gericht, hij is klaarwakker.",
+                "De draak springt op je af en probeert je met 1 op op te slokken.",
+                "Je aarzelt geen moment en houd je schild tussen jou en de draak.",
+                "Het schild blijkt sterker dan je had gedacht en houd de beet van de draak tegen.",
+                "Het is zelfs zo sterk dat het vast blijft zitten in zijn bek.",
+                "Voor je neus, aan een gouden koort, aan de nek van de draak, bungelt een sleutel, je grijpt het.",
+                "Met de sleutel in je hand snel je je naar de grote ijzeren deur.",
+                "Hij past perfect en je opent de deur soepel.",
+                "Je stapt de deur door.",
+                "Achter je slaat de deur dicht.",
+                "Recht voor je zie je een trap naar boven.",
+                "Dat moet de uitgang zijn, denk je bij jezelf.",
+                "Je loopt de ronde, ijzeren trap op.",
+                "Boven aan de trap kom je bij een dichte deur.",
+                "Naast de deur zit een plaat met de cijfers 1 t/m 9 en een beschrijving er onder.",
+                "De beschrijving luidt:",
+                "\"Toets de route in die u heeft bewandeld om hier te geraken\".",
+                "\"U heeft 3 pogingen om de 5-cijferige code correct in te voeren\".",
+                "Nog 3 pogingen over...",
+                "Met een harde toon zwaait de deur open en je rent naar buiten.",
+                "Je bent succesvol ontsnapt uit de dungeon."
+            ],
+            "choices": [
+                "Neem je A) de deur links of B) de gang rechts? : b",
+                "Wil je het schild meenemen? (Y/N) : y",
+                "Neem je de gang A) links of B) rechts? : a",
+                "Wat doe je? A) Rennen of B) Bukken? : b",
+                "Wat doe je? A) Naar de gang of B) Door het gat? : a",
+                "Wat doe je? A) toch de brug over of B) Verdedigen? : a",
+                "Welke 5 cijfers voer je in? : 17592"
+            ],
+            "errors": []
+        }
+    }
+}

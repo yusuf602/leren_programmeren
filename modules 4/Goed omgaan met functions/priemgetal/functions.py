@@ -1,10 +1,12 @@
-# Controleert of een getal een priemgetal is.
 def is_prime(number: int) -> bool:
     """Controleert of een getal een priemgetal is."""
+#als het gelijk en of kleiner is dan 1 is het geen  prime getal
     if number <= 1:
         return False
+#als het gelijk is aan 2 is het wel een prime getal
     if number == 2:
         return True
+#als het gelijk deel baar is door 2 gelijk is aan 0 is het geen prime getal
     if number % 2 == 0:
         return False
 
@@ -17,8 +19,11 @@ def is_prime(number: int) -> bool:
 # 1. Alle priemgetallen tot en met een bepaald getal
 def priem_tot_en_met(n: int) -> list:
     """Geeft een lijst van alle priemgetallen tot en met n."""
-    return [num for num in range(2, n + 1) if is_prime(num)]
-
+    list=[]
+    for i in range (n+1):
+        if is_prime(i): 
+            list.append(i)
+    return list
 # 2. De eerste N priemgetallen
 def first_n_primes(n: int) -> list:
     """Geeft een lijst van de eerste n priemgetallen."""
