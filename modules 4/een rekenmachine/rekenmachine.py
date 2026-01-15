@@ -2,7 +2,7 @@ from calculation import calculations
 
 def main():
     firstRound = True
-    result = None  # Initialiseer 'result' buiten de loop
+    result = None  
     while True:
         if firstRound:
             firstRound = False
@@ -31,7 +31,6 @@ def main():
                     continue
             n1 = result
 
-        # Mapping user input to dictionary keys
         key_map = {
             'a': 'add',
             'b': 'subtract',
