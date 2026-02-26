@@ -1,7 +1,7 @@
 from functions import is_prime, priem_tot_en_met, first_n_primes, primes_between
 
 def main():
-    print("\n PRIEMGETALLEN GENERATOR ")
+    print(" PRIEMGETALLEN GENERATOR ")
     print("1️ Priemgetallen tot en met een bepaald getal")
     print("2️ De eerste N priemgetallen")
     print("3️ Priemgetallen tussen twee getallen")
@@ -38,7 +38,7 @@ def main():
                 if start > end:
                     print("Het eerste getal moet kleiner of gelijk zijn aan het tweede getal.")
                 else:
-                    resultaat = primes_between(start, end)
+                    resultaat = primes_between(start +1, end -1)
                     if resultaat:
                         print(f"Priemgetallen tussen {start} en {end}: {resultaat}")
                     else:
