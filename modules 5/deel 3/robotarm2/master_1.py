@@ -28,7 +28,6 @@ for i in range(aantal_blokken):
 for i in range(aantal_blokken):
     robotArm.grab()
     if robotArm.scan() == aparte_kleur:
-        robotArm.grab()
         break
     robotArm.drop()
     robotArm.moveRight()

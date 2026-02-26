@@ -113,7 +113,10 @@ volgende_vak = 1
 
 positie_arm = 1
 
-blokken_vakjes = kleuren  
+blokken_vakjes = kleuren  # kleuren = lijst van kleuren van vak 5 t/m 10
+
+# Functie om blokken van een bepaalde kleur te stapelen
+
 
 # your code ends here
 
