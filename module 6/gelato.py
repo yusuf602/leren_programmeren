@@ -1,6 +1,6 @@
 import functies
 
-print("Welkom bij de gelato ijssalon!")
+print("Welkom bij Papi Gelato!")
 print("Hier kunt u direct uw ijsjes verkopen.\n")
 
 while True: 
