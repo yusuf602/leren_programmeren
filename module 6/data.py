@@ -2,7 +2,7 @@ MIN_BOLLETJES = 1
 MAX_BOLLETJES = 8
 MAX_HOORNTJE = 3
 
-PRIJS_BOLLETJE = 1.10
+PRIJS_BOLLETJE = 0,95
 PRIJS_HOORNTJE = 1.25
 PRIJS_BAKJE = 0.75
 
@@ -12,7 +12,6 @@ GELDIGE_ANTWOORDEN = ["ja", "nee"]
 SMAKEN = {
     "A": "Aardbei",
     "C": "Chocolade",
-    "M": "Munt",
     "V": "Vanille"
 }
 
