@@ -18,7 +18,7 @@ def vraag_smaak_per_bolletje(aantal):
     smakenlijst = []
     for i in range(1, aantal + 1):
         while True:
-            keuze = input(f"Welke smaak wilt u voor bolletje nummer {i}? A) Aardbei, C) Chocolade, M) Munt of V) Vanille? ").upper()
+            keuze = input(f"Welke smaak wilt u voor bolletje nummer {i}? A) Aardbei, C) Chocoladeof V) Vanille? ").upper()
             if keuze in data.SMAKEN:
                 smakenlijst.append(keuze)
                 break
@@ -89,8 +89,6 @@ def print_bon(bestellingen):
     print("-----------------")
     print(f"Totaal: € {totaal_prijs:.2f}")
 
-# ---------- Zakelijke klanten ----------
-
 def zakelijke_bestelling():
     while True:
         aantal_liter = input("Hoeveel liter wilt u bestellen? ")
@@ -103,7 +101,7 @@ def zakelijke_bestelling():
     smakenlijst = []
     for i in range(1, aantal_liter + 1):
         while True:
-            smaak = input(f"Welke smaak voor liter {i}? A) Aardbei, C) Chocolade, M) Munt of V) Vanille? ").upper()
+            smaak = input(f"Welke smaak voor liter {i}? A) Aardbei, C) Chocolade of V) Vanille? ").upper()
             if smaak in data.SMAKEN:
                 smakenlijst.append(smaak)
                 break
