@@ -9,7 +9,7 @@ while True:
         if klant_type in ["1","2"]:
             break
         else:
-            print("Sorry dat snap ik niet...")
+            print("Sorry dat is geen optie die we aanbieden...")
 
     if klant_type == "1":
         bestellingen = []
