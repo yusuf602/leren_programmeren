@@ -15,4 +15,12 @@ for pogingen in range(pogingen):
         print(f"goed geraden het woord was {gekozen_woord}")
         break
     else:
-        print("helaas fout")
+        resultaat = ""
+        for i in range(len(gekozen_woord)):
+            if gok[i] == gekozen_woord[i]:
+                resultaat += "🟢"
+            elif gok[i] in gekozen_woord:
+                resultaat += "🟡"
+            else:
+                resultaat += "⬜"
+        print(resultaat)
