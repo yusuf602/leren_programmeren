@@ -4,26 +4,26 @@ BEGIN BESTELLING
 
 STAP 1: Vraag aantal bolletjes van de klant
 
-WHILE aantal bolletjes ongeldig:
+hetrhaal zollang aantalbolletjes ongeldig is:
     Controleer of het een getal is
-    IF getal tussen 1 en 3:
+    als het getal tussen 1 en 3:
         GA NAAR stap 2
-    ELSE IF getal tussen 4 en 8:
+    anders aals het getal tussen 4 en 8:
         Geef klant een bakje met het opgegeven aantal bolletjes
         GA NAAR stap 2
-    ELSE IF getal groter dan 8:
+    anders als het getal groter dan 8:
         Zeg dat zulke grote bakken niet mogelijk zijn
         Herhaal stap 1
-    ELSE:
+    anders:
         Zeg dat invoer niet begrepen wordt
         Herhaal stap 1
 
 STAP 2: Vraag of klant hoorntje of bakje wil
 
-WHILE antwoord ongeldig:
-    IF antwoord = hoorntje of bakje:
+zolang herhalen to antwoord ongeldig:
+    als antwoord = hoorntje of bakje:
         GA NAAR stap 3
-    ELSE:
+    anders:
         Zeg dat invoer niet begrepen wordt
         Herhaal stap 2
 
@@ -31,13 +31,13 @@ STAP 3: Afhandelen bestelling
     Geef bestelling aan klant (aantal bolletjes in gekozen bakje of hoorntje)
     
     Vraag of klant nog meer wil bestellen
-    WHILE antwoord ongeldig:
-        IF antwoord = ja:
+    herhaal zolang antwoord ongeldig:
+        als antwoord = ja:
             Herhaal stap 1
-        ELSE IF antwoord = nee:
+        anders als antwoord = nee:
             EINDIG BESTELLING
             STOP
-        ELSE:
+        anders:
             Zeg dat invoer niet begrepen wordt
             Herhaal stap 3
 
