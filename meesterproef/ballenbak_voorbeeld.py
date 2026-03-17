@@ -12,6 +12,7 @@ def grabbelen(ballenbak):
     ballenbak.remove(bal1)
     bal2 = None
     if bal1 != "rood":
+        return bal1, None
+    else:
         bal2 = random.choice(ballenbak)
-        ballenbak.remove(bal2)
     return bal1, bal2
