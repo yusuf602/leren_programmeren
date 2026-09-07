@@ -1,59 +1,81 @@
 import random
-from lingowords import words
-from ballenbak import ballenbak, grabbelen
+from ballenbak import maak_ballenbak, grabbelen
+from lingowords import words  
 
+pogingen_per_woord = 5
 rode_ballen = 0
 groene_ballen = 0
-woorden_goedgekeurd = 0  
-def update_ballen(bal):
-    global rode_ballen, groene_ballen
-    if bal == "rood":
-        rode_ballen += 1
-    elif bal == "groen":
-        groene_ballen += 1
+woorden_goed = 0
+aantal_woorden_fout = 0
+
+ballenbak = maak_ballenbak()
 
 while True:
     gekozen_woord = random.choice(words)
-    huidige_status = gekozen_woord[0] + "_" * (len(gekozen_woord)-1)
-    pogingen = 5
+    huidige_status = gekozen_woord[0] + "_" * (len(gekozen_woord) - 1)
 
-    print("\nNieuw woord!")
+    print("Nieuw woord!")
     print("Beginletter is:", gekozen_woord[0])
 
-    for poging in range(pogingen):
+    for poging in range(pogingen_per_woord):
         print("Huidige status:", huidige_status)
-        gok = input("Doe een gok: ")
 
-        if len(gok) != len(gekozen_woord):
-            print("Woord moet", len(gekozen_woord), "letters hebben")
-            continue
+        while True:
+            gok = input("Doe een gok: ").lower()
+
+            if len(gok) != len(gekozen_woord):
+                print(f"Fout! Het woord moet {len(gekozen_woord)} letters hebben.")
+                continue
+
+            break  
 
         if gok == gekozen_woord:
-            print("Goed geraden!!")
-            woorden_goedgekeurd += 1
+            print(f"Goed geraden!! Het woord was: {gekozen_woord}")
+            woorden_goed += 1
+            aantal_woorden_fout = 0
+
             bal1, bal2 = grabbelen(ballenbak)
             print("Eerste bal:", bal1)
-            update_ballen(bal1)
-            if bal2:
-                print("Tweede bal:", bal2)
-                update_ballen(bal2)
-            else:
-                print("Geen tweede bal, eerste bal was rood")
 
-            break 
+            if bal1 == "rood":
+                rode_ballen += 1
+                print("Geen tweede bal, eerste was rood")
+            else:
+                if bal1 == "groen":
+                    groene_ballen += 1
+                print("Tweede bal:", bal2)
+                if bal2 == "rood":
+                    rode_ballen += 1
+                elif bal2 == "groen":
+                    groene_ballen += 1
+
+            break
+
         else:
-            resultaat = ""
+            resultaat = ["⬜"] * len(gekozen_woord)
+            woord_over = list(gekozen_woord)
+
             for i in range(len(gekozen_woord)):
                 if gok[i] == gekozen_woord[i]:
-                    resultaat += "🟢" + gok[i]
+                    resultaat[i] = "🟢"
+                    woord_over[i] = None
                     huidige_status = huidige_status[:i] + gok[i] + huidige_status[i+1:]
-                elif gok[i] in gekozen_woord:
-                    resultaat += "🟡" + gok[i]
-                else:
-                    resultaat += "⬜" + gok[i]
-            print(resultaat)
+
+            for i in range(len(gekozen_woord)):
+                if resultaat[i] == "⬜" and gok[i] in woord_over:
+                    resultaat[i] = "🟡"
+                    woord_over[woord_over.index(gok[i])] = None
+
+            print("".join(resultaat))
+
     else:
         print("Maximaal aantal pogingen bereikt. Het woord was:", gekozen_woord)
+        aantal_woorden_fout += 1
+
+    print("Score:")
+    print("Groene ballen:", groene_ballen)
+    print("Rode ballen:", rode_ballen)
+    print("Goed geraden woorden:", woorden_goed)
 
     if rode_ballen >= 3:
         print("Team heeft verloren door 3 rode ballen!")
@@ -61,11 +83,14 @@ while True:
     if groene_ballen >= 3:
         print("Team wint door 3 groene ballen!")
         break
-    if woorden_goedgekeurd >= 10:
+    if woorden_goed >= 10:
         print("Team wint door 10 goed geraden woorden!")
         break
+    if aantal_woorden_fout >= 3:
+        print("Jammer, verloren door 3 fout geraden woorden achter elkaar!")
+        break
 
-    opnieuw = input("Wil je nog een woord raden? (ja/nee): ")
-    if opnieuw.lower() != "ja":
+    opnieuw = input("Wil je nog een woord raden? (ja/nee): ").lower()
+    if opnieuw != "ja":
         print("Einde spel!")
         break
