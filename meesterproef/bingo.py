@@ -51,15 +51,19 @@ def heeft_lijn(kaart):
 
     return False
 
-
 if __name__ == "__main__":
     kaart = maak_bingokaart()
 
     toon_bingokaart(kaart)
 
-    streep_nummer_door(kaart, 6)
+    # Test een horizontale lijn
+    for nummer in [1, 2, 3, 4]:
+        streep_nummer_door(kaart, nummer)
 
-    print("\nNa nummer 6:")
+    print("\nNa het trekken van 1, 2, 3 en 4:")
     toon_bingokaart(kaart)
 
-    print("\nHeeft een lijn:", heeft_lijn(kaart))
+    if heeft_lijn(kaart):
+        print("BINGO! Er is een lijn.")
+    else:
+        print("Nog geen bingo.")
